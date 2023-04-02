@@ -15,6 +15,17 @@ function GalleryList() {
         });
     }
 
+    useEffect(() => {
+        fetchGalleryList();
+    }, []);
+
+    return (
+        <>
+        
+        </>
+    )
+
+
 }
 
 export default GalleryList;
