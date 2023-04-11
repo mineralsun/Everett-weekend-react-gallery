@@ -4,7 +4,7 @@ import GalleryItems from './GalleryItems.jsx';
 const galleryItems = '/modules/gallery.data.js';
 
 
-function GalleryList({listOfImages}) {
+function GalleryList({listOfImages, fetchGalleryList }) {
 
     return (
         <>
@@ -13,6 +13,7 @@ function GalleryList({listOfImages}) {
                 <GalleryItems 
                     key={image.id}
                     image={image}
+                    fetchGalleryList={fetchGalleryList}
                 />
             )))
         }
