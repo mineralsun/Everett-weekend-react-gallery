@@ -28,12 +28,13 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <p>Gallery goes here</p>
+        <body className="body">
         <GalleryList 
           listOfImages={listOfImages}
           fetchGalleryList={fetchGalleryList}
         />
         {/* <img src="images/goat_small.jpg"/> */}
+        </body>
       </div>
     );
 }
