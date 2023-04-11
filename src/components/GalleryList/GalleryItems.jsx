@@ -14,13 +14,12 @@ function GalleryItems({ image, fetchGalleryList }) {
 
     const [likes, setLikes] = useState(image.likes);
     const [showDesc, setShowDesc] = useState(false)
+    const [imageView, setImageView] = useState('img');
 
     const mouseEnter = (e) => {
         e.target.style.background = "grey"
+        e.target.text = image.description
         setShowDesc(true)
-        if (setShowDesc === true) {
-            image.description
-        }
     }
 
     const mouseLeave = (e) => {
@@ -29,7 +28,7 @@ function GalleryItems({ image, fetchGalleryList }) {
     }
 
     const likePhoto = (e) => {
-        axios.put(`/gallery/like/:${image.id}`)
+        axios.put(`/gallery/like/${image.id}`)
         .then((response) => {
             console.log(`Liked this photo!`);
             setLikes(likes + 1);
@@ -53,10 +52,11 @@ function GalleryItems({ image, fetchGalleryList }) {
                     onMouseEnter={mouseEnter}
                     onMouseLeave={mouseLeave}
                     >
-                            <img src={image.path}
+                        {showDesc ? image.description : <img src={image.path} /> }
+                            {/* <img src={image.path}
                             />
                             <br />
-                            {image.description}
+                            {image.description} */}
                     </CardContent>
                         <br />
                                 Likes: {likes} 
